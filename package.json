@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "node --watch --env-file=.env src/server.js",
+    "dev": "node src/server.js",
     "commit": "npx cz",
     "prepare": "husky",
     "services:up": "docker compose -f infra/compose.yaml up -d",
@@ -15,7 +15,6 @@
     "commitizen-cli": "^3.1.2",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "morgan": "^1.10.1",
     "node-pg-migrate": "^8.0.4",
     "pg": "^8.21.0"
   },
