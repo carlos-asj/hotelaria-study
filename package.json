@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "dev": "node app.js",
-    "commit": "commit"
+    "commit": "npx cz",
+    "prepare": "husky"
   },
   "dependencies": {
     "commitizen-cli": "^3.1.2",
@@ -10,12 +11,14 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^21.0.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7"
   }
 }
