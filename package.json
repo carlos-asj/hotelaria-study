@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "npm run services:up && node src/server.js",
+    "dev": "npm run services:up && npm run migrate:up && node src/server.js",
     "commit": "npx cz",
     "prepare": "husky",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",

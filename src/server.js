@@ -9,6 +9,7 @@ const PORT = 3000;
 
 app.use(morgan("dev"));
 app.use("/api/v1/status", getStatus);
+
 app.use("/api/v1/guests", guestsRoutes);
 
 app.listen(PORT, () => {
