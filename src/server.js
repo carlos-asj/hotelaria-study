@@ -8,6 +8,9 @@ const app = express();
 const PORT = 3000;
 
 app.use(morgan("dev"));
+
+app.use(express.json());
+
 app.use("/api/v1/status", getStatus);
 
 app.use("/api/v1/guests", guestsRoutes);
