@@ -23,3 +23,22 @@ export const getGuestById = async (request, response) => {
     data: guest,
   });
 };
+
+export const deleteGuest = async (request, response) => {
+  const { id } = request.params;
+  const guest = await GuestsModel.deleteGuest(id);
+  response.status(200).json({
+    message: "User deleted.",
+    data: guest,
+  });
+};
+
+export const updateGuest = async (request, response) => {
+  const { id } = request.params;
+  const body = request.body;
+  const guest = await GuestsModel.updateGuest(id, body);
+  response.status(200).json({
+    message: "Guest updated.",
+    data: guest,
+  });
+};

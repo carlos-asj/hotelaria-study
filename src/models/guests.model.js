@@ -25,10 +25,35 @@ async function getById(id) {
   return result.rows[0].name;
 }
 
+async function deleteGuest(id) {
+  const result = await database.query({
+    text: `DELETE FROM guests
+    WHERE id = $1`,
+    values: [id],
+  });
+}
+
+async function updateGuest(id, body) {
+  const result = await database.query({
+    text: `UPDATE guests
+    SET name = $1,
+    email = $2,
+    phone = $3,
+    updated_at = NOW()
+    WHERE id = $4
+    RETURNING *`,
+    values: [body.name, body.email, body.phone, id],
+  });
+
+  return result.rows[0];
+}
+
 const GuestsModel = {
   getAll,
   create,
   getById,
+  deleteGuest,
+  updateGuest,
 };
 
 export default GuestsModel;
